@@ -1,0 +1,36 @@
+.friendMessage {
+
+}
+
+.friendImageAndText {
+display: flex;
+flex-direction: row;
+gap:20px
+}
+
+.friendImageAndText img {
+  width: 48px;
+}
+
+.friendText {
+  max-width: 414px;
+background-color:antiquewhite;
+border-radius: 10px solid blue
+}
+
+.friendText:after {
+
+}
+
+.friendName {
+
+}
+
+.friendMessageText {
+  word-break: break-all;
+  white-space: normal;
+}
+
+.friendTime {
+
+}

@@ -1,0 +1,36 @@
+.message {
+
+}
+
+.imageAndText {
+display: flex;
+flex-direction: row-reverse;
+gap:20px
+}
+
+.imageAndText img {
+  width: 48px;
+}
+
+.text {
+ max-width: 414px;
+ border-radius: 10px;
+ background-color: #f5f7fb;
+}
+
+.text:after {
+
+}
+
+.name {
+
+}
+
+.messageText {
+word-break: break-all;
+white-space: normal;
+}
+
+.time {
+
+}
