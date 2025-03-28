@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/VovaKuzmenko/S3_homework.git/static/css/main.a48fc5e8.css",
+    "main.js": "/VovaKuzmenko/S3_homework.git/static/js/main.addeeca4.js",
+    "static/js/399.810a02d0.chunk.js": "/VovaKuzmenko/S3_homework.git/static/js/399.810a02d0.chunk.js",
+    "static/media/avatar.png": "/VovaKuzmenko/S3_homework.git/static/media/avatar.d947cb9d0d13765666b6.png",
+    "index.html": "/VovaKuzmenko/S3_homework.git/index.html",
+    "main.a48fc5e8.css.map": "/VovaKuzmenko/S3_homework.git/static/css/main.a48fc5e8.css.map",
+    "main.addeeca4.js.map": "/VovaKuzmenko/S3_homework.git/static/js/main.addeeca4.js.map",
+    "399.810a02d0.chunk.js.map": "/VovaKuzmenko/S3_homework.git/static/js/399.810a02d0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a48fc5e8.css",
+    "static/js/main.addeeca4.js"
+  ]
+}
