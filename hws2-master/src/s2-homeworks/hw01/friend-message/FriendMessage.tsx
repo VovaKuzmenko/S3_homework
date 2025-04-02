@@ -8,7 +8,6 @@ import { MessagePropsType } from '../message/Message'
 
 const FriendMessage = (props: MessagePropsType) => {
   /*************************************** */
-  console.log(props)
   return (
     <div
       id={'hw1-friend-message-' + props.message.id}
