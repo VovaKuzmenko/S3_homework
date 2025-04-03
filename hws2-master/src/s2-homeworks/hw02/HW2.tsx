@@ -31,7 +31,7 @@ export type FilterType = 'all' | AffairPriorityType
 
 // constants
 // const defaultAffairs: any = [ // need to fix any
-const defaultAffairs: AffairType[] = [ //????
+const defaultAffairs: AffairType[] = [
   { _id: 1, name: 'React', priority: 'high' }, // студенты могут изменить содержимое name и количество элементов в массиве, ...priority не менять!
   { _id: 2, name: 'anime', priority: 'low' },
   { _id: 3, name: 'games', priority: 'low' },
@@ -41,17 +41,18 @@ const defaultAffairs: AffairType[] = [ //????
 
 // pure helper functions
 // export const filterAffairs = (affairs: any, filter: any): any => { // need to fix any
-export const filterAffairs = (affairs: AffairType[], filter: FilterType): any => { //???
+export const filterAffairs = (affairs: AffairType[], filter: FilterType): any => {
+  if (filter === 'all') { return affairs }
   const newAffairs = affairs.filter(affair => affair.priority === filter)
 
   // return affairs // need to fix
-  return [...newAffairs] //?? как это пофиксить
+  return newAffairs
 }
 // export const deleteAffair = (affairs: any, _id: any): any => { // need to fix any
 export const deleteAffair = (affairs: AffairType[], _id: number) => {
   const newAffairs = affairs.filter(affair => affair._id !== _id)
   // return affairs // need to fix
-  return [...newAffairs]  //?? как это пофиксить
+  return newAffairs
 }
 
 
@@ -63,7 +64,7 @@ function HW2() {
   const filteredAffairs = filterAffairs(affairs, filter)
   // const deleteAffairCallback = (_id: any) => { // need to fix any
   const deleteAffairCallback = (_id: number) => {
-    setAffairs([...deleteAffair(affairs, _id)])
+    setAffairs(deleteAffair(affairs, _id))
   }
 
   return (

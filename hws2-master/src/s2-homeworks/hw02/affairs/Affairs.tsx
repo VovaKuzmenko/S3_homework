@@ -7,29 +7,31 @@ type AffairsPropsType = {
   // data: any // need to fix any
   data: AffairType[]
   // setFilter: any
-  setFilter: Dispatch<SetStateAction<string>>
+  // setFilter: Dispatch<SetStateAction<string>>
+  setFilter: (s: FilterType) => void ///!!!!!!!!
   // deleteAffairCallback: any
   deleteAffairCallback: (_id: number) => void
   filter: FilterType
 }
 
 function Affairs(props: AffairsPropsType) {
+  console.log(props.filter)
   const setAll = () => {
     // need to fix
-    { props.data }
+    props.setFilter("all")
   }
   const setHigh = () => {
     // need to fix
-    { props.data }
+    props.setFilter("high")
   }
   const setMiddle = () => {
     // need to fix
-    { props.data }
+    props.setFilter("middle")
 
   }
   const setLow = () => {
     // need to fix
-    { props.data }
+    props.setFilter("low")
   }
 
   const cnAll = s.button + ' ' + s.all + (props.filter === 'all' ? ' ' + s.active : '')
@@ -38,13 +40,15 @@ function Affairs(props: AffairsPropsType) {
   const cnLow = s.button + ' ' + s.low + (props.filter === 'low' ? ' ' + s.active : '')
 
   const mappedAffairs = props.data.map((a: AffairType) => (
+
     <Affair
       key={a._id} // кеи ОБЯЗАТЕЛЬНЫ в 99% - так что лучше их писать всегда при создании компонент в мапе
       affair={a}
       deleteAffairCallback={props.deleteAffairCallback}
     />
   ))
-
+  console.log(props.data, props.deleteAffairCallback)
+  // debugger
   return (
     <div>
       <div className={s.buttonContainer}>
