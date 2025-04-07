@@ -19,36 +19,51 @@ import GreetingContainer from './GreetingContainer'
 
 // types
 export type UserType = {
-    _id: any // need to fix any
-    name: any // need to fix any
+  // _id: any // need to fix any
+  _id: number
+  // name: any // need to fix any
+  name: string
 }
 
-export const pureAddUserCallback = (name: any, setUsers: any, users: any) => { // need to fix any
-    const user = { // need to fix
-    }
-    setUsers([...users, user])
+// export const pureAddUserCallback = (name: any, setUsers: any, users: any) => { // need to fix any
+export const pureAddUserCallback = (name: string, setUsers: Function, users: UserType[]) => {
+
+
+  // const user = { // need to fix
+  const user = {
+    id: v1(), name: name
+  }
+
+  console.log([...users, user])
+  setUsers([...users, user])
+  // "userId-", user.id,
+  // debugger
 }
 
 const HW3 = () => {
-    const [users, setUsers] = useState<any>([]) // need to fix any
+  // const [users, setUsers] = useState<any>([]) // need to fix any
+  const [users, setUsers] = useState<UserType[]>([])
 
-    const addUserCallback = (name: any) => { // need to fix any
-        pureAddUserCallback(name, setUsers, users)
-    }
+  // const addUserCallback = (name: any) => { // need to fix any
+  const addUserCallback = (name: string) => {
+    pureAddUserCallback(name, setUsers, users)
+    console.log(users)
+  }
 
-    return (
-        <div id={'hw3'}>
-            <div className={s2.hwTitle}>Homework #3</div>
-            {/*для автоматической проверки дз (не менять)*/}
+  return (
+    <div id={'hw3'}>
+      <div className={s2.hwTitle}>Homework #3</div>
+      {/*для автоматической проверки дз (не менять)*/}
 
-            <div className={s2.hw}>
-                <GreetingContainer
-                    users={users}
-                    addUserCallback={addUserCallback}
-                />
-            </div>
-        </div>
-    )
+      <div className={s2.hw}>
+        <GreetingContainer
+
+          users={users}
+          addUserCallback={addUserCallback}
+        />
+      </div>
+    </div>
+  )
 }
 
 export default HW3
