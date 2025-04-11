@@ -20,24 +20,23 @@ import GreetingContainer from './GreetingContainer'
 // types
 export type UserType = {
   // _id: any // need to fix any
-  _id: number
+  _id: string
   // name: any // need to fix any
   name: string
 }
 
 // export const pureAddUserCallback = (name: any, setUsers: any, users: any) => { // need to fix any
-export const pureAddUserCallback = (name: string, setUsers: Function, users: UserType[]) => {
-
-
+export const pureAddUserCallback = (name: string, setUsers: (s: UserType[]) => void, users: UserType[]) => {
   // const user = { // need to fix
   const user = {
-    id: v1(), name: name
+    _id: v1(), name: name
   }
-
-  console.log([...users, user])
-  setUsers([...users, user])
+  const rezultArr = [user, ...users]
+  setUsers(rezultArr)
+  // console.log(rezultArr)
   // "userId-", user.id,
   // debugger
+
 }
 
 const HW3 = () => {
@@ -47,7 +46,9 @@ const HW3 = () => {
   // const addUserCallback = (name: any) => { // need to fix any
   const addUserCallback = (name: string) => {
     pureAddUserCallback(name, setUsers, users)
-    console.log(users)
+    // console.log(users) 
+    // const NewUsers = users.map(el => console.log(el))
+
   }
 
   return (
