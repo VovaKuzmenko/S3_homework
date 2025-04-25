@@ -1,20 +1,26 @@
 .input:focus {
+  color: rgb(53, 231, 222)
 }
 
 .input {
+  
 }
 
 .inputWrapper {
 }
 
 .superInput {
+  color:blueviolet
 }
 
 .errorInput {
+  color: red
 }
 
 .errorInput:focus {
+  color:brown
 }
 
 .error {
+  color:rgb(248, 34, 77)
 }

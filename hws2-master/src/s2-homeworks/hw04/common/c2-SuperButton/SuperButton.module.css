@@ -2,21 +2,26 @@
 }
 
 .disabled {
+  background-color:burlywood
 }
 
 .secondary {
+  background-color:darkorange
 }
 
 .default {
+  background-color:rgb(17, 172, 172)
 }
 
 .red {
+  background-color: red
 }
 
 .default:hover {
 }
 
 .red:hover {
+  background-color: rgb(114, 5, 5)
 }
 
 .secondary:hover {
