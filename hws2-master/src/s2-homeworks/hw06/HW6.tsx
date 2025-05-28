@@ -19,7 +19,17 @@ const HW6 = () => {
     }
     const restore = () => {
         // делают студенты
-
+      //   let NewValue=value
+      //   console.log(NewValue)
+      //   let arr =[]
+      // arr.push[NewValue]
+      // setValue(arr[NewValue])
+      // console.log(value)
+let NewValue=value
+let arr =[]
+arr.push[NewValue]
+      setValue(arr[length])
+      // console.log(arr[length])
     }
 
     return (

@@ -1,24 +1,40 @@
 .sidebar {
+  background-color: blueviolet;
 }
 
 .sidebar.open {
+  
 }
 
 .background {
+  
 }
 
 .nav {
+  display: flex;
+  justify-content: space-around;
 }
 
 .nav a {
+  text-decoration: none;
+  color:black;
+  font-size: 30px;
+  font-weight: 700;
+  gap:20px;
 }
 
 .nav a:hover {
+  color: rgb(154, 201, 83);
 }
 
-.nav a.active {
+ .nav a.active {
+  color: #cf3872; 
+}
+.nav a:active {
+  color: blue; 
 }
 .close {
+  
 }
 
 .close img {

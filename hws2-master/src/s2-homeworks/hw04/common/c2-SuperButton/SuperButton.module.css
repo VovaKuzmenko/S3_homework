@@ -1,4 +1,24 @@
 .button {
+/* display: flex; */
+border-radius: 3px;
+border: solid 1px #0066CC;
+min-height: 14px;
+justify-content: center;
+align-items: center;
+letter-spacing: 0.2px;
+font-size: 14px;
+font-weight: 600;
+text-align: center;
+line-height: 150%;
+padding: 1px 20px;
+margin-right: 20px;
+color: #0066CC;
+background-color: #FFF
+}
+
+.button:hover  {
+  color: white;
+  background-color: #0066CC;
 }
 
 .disabled {

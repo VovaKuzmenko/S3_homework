@@ -1,11 +1,25 @@
+button{
+  border: none; 
+  padding: 0; 
+  margin: 0; 
+  font: inherit;
+}
+
+
+
 .App {
     --header_height: 60px;
+    margin-left: 28px;
 }
 
 .hw {
-
+font-size: 16px;
+  font-weight: 500;
+  color: #0080FF;
 }
 
 .hwTitle {
-
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 30px;
 }
