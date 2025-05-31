@@ -1,15 +1,44 @@
 .radio {
+  display: block;
+  /* position: relative; */
+  
+  border-radius: 50%;
+  
+  border: 4px solid #0000;
+  cursor: pointer;
 }
 
 .radio::before {
+  
 }
 
 
 .radio:checked::before {
+  
 }
 
 .label {
+  display:flex;
+  margin-left: 100px;
+ 
+}
+
+.label:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.label input{
+width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.label span {  
+  font-size: 16px;
+  color: #000;
+  
 }
 
 .options {
+  
 }
