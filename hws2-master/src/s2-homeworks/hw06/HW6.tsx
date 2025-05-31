@@ -15,20 +15,18 @@ import { g } from 'react-router/dist/development/fog-of-war-BLArG-qZ'
 const HW6 = () => {
     const [value, setValue] = useState<string>('')
 
+    // как где и когда используются вместо или с localStorage
+    // в этом дз мы используем localStorage, но в реальных проектах лучше использовать
+    // что-то вроде redux-persist, mobx-persist или другие библиотеки для сохранения состояния
+    // в localStorage сохраняем значение value
     const save = () => {
         saveState<string>('hw6-editable-span-value', value)
     }
     const restore = () => {
         // делают студенты
-        // save()
-        // const restoredValue = restoreState<string>('hw6-editable-span-value', value)
-      /*********************** */
-      // const restoredValue=storage('hw6-editable-span-value')
-      // console.log(restoredValue)
-      // console.log(localStorage.length)
-      // localStorage.clear()
-      // setValue(restoredValue)
-     
+                   
+      // в localStorage сохраняем значение value, а в restoreState восстанавливаем его
+      // на будущее почитать и хорошо разобраться с localStorage и sessionStorage
     const restoredValue = restoreState<string>('hw6-editable-span-value', '')
     setValue(restoredValue)
 
