@@ -24,9 +24,10 @@ const HW6 = () => {
     }
     const restore = () => {
         // делают студенты
-                   
+
       // в localStorage сохраняем значение value, а в restoreState восстанавливаем его
       // на будущее почитать и хорошо разобраться с localStorage и sessionStorage
+      // restore - она получала сохранённое значение из localStorage с помощью функции restoreState, и устанавливала это значение в состояние value.
     const restoredValue = restoreState<string>('hw6-editable-span-value', '')
     setValue(restoredValue)
 
