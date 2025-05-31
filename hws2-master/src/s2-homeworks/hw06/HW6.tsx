@@ -4,6 +4,7 @@ import { restoreState, saveState } from './localStorage/localStorage'
 import s2 from '../../s1-main/App.module.css'
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
 import s from './HW6.module.css'
+import { g } from 'react-router/dist/development/fog-of-war-BLArG-qZ'
 
 /*
  * 1 - в файле SuperEditableSpan.tsx дописать логику функций onEnterCallback, onBlurCallback, onDoubleClickCallBack
@@ -19,17 +20,18 @@ const HW6 = () => {
     }
     const restore = () => {
         // делают студенты
-      //   let NewValue=value
-      //   console.log(NewValue)
-      //   let arr =[]
-      // arr.push[NewValue]
-      // setValue(arr[NewValue])
-      // console.log(value)
-let NewValue=value
-let arr =[]
-arr.push[NewValue]
-      setValue(arr[length])
-      // console.log(arr[length])
+        // save()
+        // const restoredValue = restoreState<string>('hw6-editable-span-value', value)
+      /*********************** */
+      // const restoredValue=storage('hw6-editable-span-value')
+      // console.log(restoredValue)
+      // console.log(localStorage.length)
+      // localStorage.clear()
+      // setValue(restoredValue)
+     
+    const restoredValue = restoreState<string>('hw6-editable-span-value', '')
+    setValue(restoredValue)
+
     }
 
     return (
