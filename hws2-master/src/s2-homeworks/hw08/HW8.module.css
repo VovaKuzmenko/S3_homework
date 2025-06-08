@@ -1,23 +1,38 @@
 .item {
+  font-size: 14px;
+  color: #000;
+  
 }
 
 .item:last-of-type {
 }
 
 .users {
+  margin: 20px 0 0 10px;
+
 }
 
 .buttonsContainer {
+  display: flex;
+  justify-content: center;
+  
 }
 
 .container {
+ 
 }
 
 .thead {
+  font-size: 14px;
+  color: #000;
+  font-weight: 600;
 }
 
 .nameCol {
+  font-weight: 300;
+  
 }
 
 .ageCol {
+  font-weight: 500;
 }

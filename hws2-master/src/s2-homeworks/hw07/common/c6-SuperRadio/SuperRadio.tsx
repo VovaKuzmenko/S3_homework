@@ -54,8 +54,10 @@ const SuperRadio: React.FC<SuperRadioPropsType> = ({
                       type={'radio'}
                       // name, checked, value делают студенты
                       name={name} // для радио кнопок name должен быть одинаковым
-                      value={value} // значение value должно быть равно value из пропсов
-                      checked={value === o.id} // checked должно быть true, если value совпадает с id опции
+                      // value={value} //! неправильно: value должен быть уникальным для каждой опции
+                      value={o.id} // value должен быть id опции, чтобы можно было получить значение при изменении //!правильно: value уникален для каждой опции
+                      checked={value == o.id} // checked должно быть true, если value совпадает с id опции
+                      // input.checked= true
                       onChange={onChangeCallback}
                       {...restProps}
                   />
