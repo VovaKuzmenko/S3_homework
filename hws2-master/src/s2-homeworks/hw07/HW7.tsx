@@ -12,6 +12,7 @@ import s from './HW7.module.css'
 * */
 
 // переименовал value с x, y, z
+
 const arr = [
     { id: 1, value: 'Pre-junior' },
     { id: 2, value: 'Junior' },

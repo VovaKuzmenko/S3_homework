@@ -39,6 +39,7 @@ const SuperSelect: React.FC<SuperSelectPropsType> = ({
         // делают студенты        
         const SelectedItem:number = Number(e.currentTarget.value)        
           if (onChangeOption) {
+            console.log(SelectedItem)
         onChangeOption(SelectedItem)        
           }        
     }
@@ -57,3 +58,5 @@ const SuperSelect: React.FC<SuperSelectPropsType> = ({
 }
 
 export default SuperSelect
+
+// get inputs radio and input select elements. Check radion inputs sequentially. The value of the select input should matchthe value of the radio input. Span element text should be equal to selected option
