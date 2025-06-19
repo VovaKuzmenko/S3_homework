@@ -1,14 +1,30 @@
-.buttonsContainer {
+.buttonsContainer button {
+  margin-bottom: 20px;  
+  background-color: #0066CC; 
+  color: #FFFFFF; 
 }
 
 .clock {
+  color:black;
+  font-size: 20px;
+  font-weight: 400;
 }
 
+ .disabled{
+opacity: 0.5;
+ }
+
 .watch {
+  display: inline;
 }
 
 .watch strong {
+  
 }
 
 .more {
+  margin-bottom: 20px;
+  opacity: 0.5;
+  font-size: 16px;
+  font-weight: 400;
 }
