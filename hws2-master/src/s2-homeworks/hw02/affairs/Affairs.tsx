@@ -15,7 +15,7 @@ type AffairsPropsType = {
 }
 
 function Affairs(props: AffairsPropsType) {
-  console.log(props.filter)
+
   const setAll = () => {
     // need to fix
     props.setFilter("all")
@@ -47,7 +47,6 @@ function Affairs(props: AffairsPropsType) {
       deleteAffairCallback={props.deleteAffairCallback}
     />
   ))
-  console.log(props.data, props.deleteAffairCallback)
   // debugger
   return (
     <div>
