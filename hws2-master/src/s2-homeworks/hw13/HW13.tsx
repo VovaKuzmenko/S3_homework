@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import s2 from '../../s1-main/App.module.css'
 import s from './HW13.module.css'
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
@@ -15,100 +15,102 @@ import errorUnknown from './images/error.svg'
 * */
 
 const HW13 = () => {
-    const [code, setCode] = useState('')
-    const [text, setText] = useState('')
-    const [info, setInfo] = useState('')
-    const [image, setImage] = useState('')
+  const [code, setCode] = useState('')
+  const [text, setText] = useState('')
+  const [info, setInfo] = useState('')
+  const [image, setImage] = useState('')
 
-    const send = (x?: boolean | null) => () => {
-        const url =
-            x === null
-                ? 'https://xxxxxx.ccc' // имитация запроса на не корректный адрес
-                : 'https://samurai.it-incubator.io/api/3.0/homework/test'
+  const send = (x?: boolean | null) => () => {
+    const url =
+      x === null
+        ? 'https://xxxxxx.ccc' // имитация запроса на не корректный адрес
+        : 'https://samurai.it-incubator.io/api/3.0/homework/test'
+    // ! Так понимаю функции, которые меняют свое содержимое в зависимости от нажатой кнопки
+    setCode('') // -  код ошибки
+    setImage('') // -  картинка
+    setText('') // -  текст сопровождения
+    setInfo('...loading') // -  показатель загрузки данных
 
-        setCode('')
-        setImage('')
-        setText('')
-        setInfo('...loading')
+    // todo Сама логика запросов и ответов
+    // todo не забудь дизэйблить кнопки пока идёт запрос;
+    axios
+      .post(url, { success: x })
+      .then((res) => {
+        setCode('Код 200!')
+        setImage(success200)
+        // дописать
+        // ! Варианты успешных запросов
+      })
+      .catch((e) => {
+        // дописать
+        // ! Варианты ошибок
+      })
+  }
 
-        axios
-            .post(url, {success: x})
-            .then((res) => {
-                setCode('Код 200!')
-                setImage(success200)
-                // дописать
+  return (
+    <div id={'hw13'}>
+      <div className={s2.hwTitle}>Homework #13</div>
 
-            })
-            .catch((e) => {
-                // дописать
-
-            })
-    }
-
-    return (
-        <div id={'hw13'}>
-            <div className={s2.hwTitle}>Homework #13</div>
-
-            <div className={s2.hw}>
-                <div className={s.buttonsContainer}>
-                    <SuperButton
-                        id={'hw13-send-true'}
-                        onClick={send(true)}
-                        xType={'secondary'}
-                        // дописать
-
-                    >
-                        Send true
-                    </SuperButton>
-                    <SuperButton
-                        id={'hw13-send-false'}
-                        onClick={send(false)}
-                        xType={'secondary'}
-                        // дописать
-
-                    >
-                        Send false
-                    </SuperButton>
-                    <SuperButton
-                        id={'hw13-send-undefined'}
-                        onClick={send(undefined)}
-                        xType={'secondary'}
-                        // дописать
-
-                    >
-                        Send undefined
-                    </SuperButton>
-                    <SuperButton
-                        id={'hw13-send-null'}
-                        onClick={send(null)} // имитация запроса на не корректный адрес
-                        xType={'secondary'}
-                        // дописать
-
-                    >
-                        Send null
-                    </SuperButton>
-                </div>
-
-                <div className={s.responseContainer}>
-                    <div className={s.imageContainer}>
-                        {image && <img src={image} className={s.image} alt="status"/>}
-                    </div>
-
-                    <div className={s.textContainer}>
-                        <div id={'hw13-code'} className={s.code}>
-                            {code}
-                        </div>
-                        <div id={'hw13-text'} className={s.text}>
-                            {text}
-                        </div>
-                        <div id={'hw13-info'} className={s.info}>
-                            {info}
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div className={s2.hw}>
+        <div className={s.buttonsContainer}>
+          <SuperButton
+            id={'hw13-send-true'}
+            onClick={send(true)}
+            xType={'secondary'}
+          // дописать
+          // ! добавить данные используемые в дизайне
+          >
+            Send true
+          </SuperButton>
+          <SuperButton
+            id={'hw13-send-false'}
+            onClick={send(false)}
+            xType={'secondary'}
+          // дописать
+          // ! добавить данные используемые в дизайне
+          >
+            Send false
+          </SuperButton>
+          <SuperButton
+            id={'hw13-send-undefined'}
+            onClick={send(undefined)}
+            xType={'secondary'}
+          // дописать
+          // ! добавить данные используемые в дизайне
+          >
+            Send undefined
+          </SuperButton>
+          <SuperButton
+            id={'hw13-send-null'}
+            onClick={send(null)} // имитация запроса на не корректный адрес
+            xType={'secondary'}
+          // дописать
+          // ! добавить данные используемые в дизайне
+          >
+            Send null
+          </SuperButton>
         </div>
-    )
+
+        <div className={s.responseContainer}>
+          <div className={s.imageContainer}>
+            {image && <img src={image} className={s.image} alt="status" />}
+          </div>
+
+          <div className={s.textContainer}>
+            <div id={'hw13-code'} className={s.code}>
+              {code}
+            </div>
+            <div id={'hw13-text'} className={s.text}>
+              {text}
+            </div>
+            <div id={'hw13-info'} className={s.info}>
+              {info}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default HW13

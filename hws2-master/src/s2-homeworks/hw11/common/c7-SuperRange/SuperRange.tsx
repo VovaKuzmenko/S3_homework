@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { Slider, SliderProps } from '@mui/material'
 
 const SuperRange: React.FC<SliderProps> = (props) => {
-  console.log(props)
+  // console.log(props)
   return (
     <Slider
       sx={{ // стили для слайдера // пишет студент
@@ -32,14 +32,14 @@ const SuperRange: React.FC<SliderProps> = (props) => {
           backgroundColor: '#b0b0b0',
           borderRadius: 3,
           // width: '200px', // длинна всего трека
-          width: '20%', // длинна всего трека
+          width: '100%', // длинна всего трека
         },
         '& .MuiSlider-track': {
           backgroundColor: '#42e732',
           borderColor: '#42e732',
           borderRadius: 3,
           // maxWidth: '200px', // длинна зеленого распространения
-          maxWidth: '20%', // длинна зеленого распространения
+          maxWidth: '100%', // длинна зеленого распространения
         },
 
       }}

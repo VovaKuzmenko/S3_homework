@@ -15,13 +15,16 @@ function HW11() {
   const [value1, setValue1] = useState(restoreState<number>('hw11-value1', 0))
   const [value2, setValue2] = useState(restoreState<number>('hw11-value2', 100))
 
-  const change = (event: React.MouseEventHandler<HTMLSpanElement>, value: number) => {
-    // пишет студент // если пришёл массив - сохранить значения в оба useState, иначе в первый
-
-    /************************************************** */
-    // Тут изменение значения записываются в стейт и потом перепысываются.
-    setValue1(20)
-    setValue2(40)
+  const change = (event: Event, value: number | number[]) => {
+    // пишет студент // если пришёл массив - сохранить значения в оба useState, иначе в первый    
+    if (Array.isArray(value)) {
+      // Для двойного слайдера - массив [value1, value2]
+      setValue1(value[0])
+      setValue2(value[1])
+    } else {
+      // Для одиночного слайдера - просто число
+      setValue1(value)
+    }
   }
 
   return (
@@ -34,30 +37,19 @@ function HW11() {
             <span id={'hw11-value'} className={s.number}>{value1}</span>
             <SuperRange
               id={'hw11-single-slider'}
-            // сделать так чтоб value1 изменялось // пишет студент
-            /************************************************** */
-            // 3. Задается значение 2-го ползунка
-            // value={[10]}
-            /************************************************** */
+              // сделать так чтоб value1 изменялось // пишет студент          
+              value={value1}
+              onChange={change}
             />
           </div>
           <div className={s.wrapper}>
             <span id={'hw11-value-1'} className={s.number}>{value1}</span>
             <SuperRange
-              //! value={[1, 10]} - элемнт отображения шариков в процентах от ширины экрана; отображая в width на картинке
-              //! соответственно нам рассчитывать необходимо от ширины на экране, а не от общей
-              //! событие мышкой задает величину и передает ее в массив ползунка
 
-              // todo Алглритм:
-              // * 1. Передать "величину" событие мышкой (верхний ползунок) в useState
-              // * 2. Окрасить следующую за ней область в зеленый цвет (не обязательно)
-              // * 3. Привязать ползунок 2 к первому через useState
-              // * 4. сделать 2-й шарик (ползунок 2) и  к передавать его значение useState
               id={'hw11-double-slider'}
-            // сделать так чтоб value1/2 изменялось // пишет студент
-            /************************************************** */
-            // value={[10, 15]}
-            /************************************************** */
+              // сделать так чтоб value1/2 изменялось // пишет студент
+              value={[value1, value2]}
+              onChange={change}
             />
             <span id={'hw11-value-2'} className={s.number}>{value2}</span>
           </div>
