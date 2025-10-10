@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { Reducer, useEffect } from 'react'
 import s from './HW12.module.css'
 import s2 from '../../s1-main/App.module.css'
 import SuperSelect from '../hw07/common/c5-SuperSelect/SuperSelect'
 import { useDispatch, useSelector } from 'react-redux'
-import { changeThemeId } from './bll/themeReducer'
+import { changeThemeId, RootState } from './bll/themeReducer'
 
 /*
 * 1 - в файле themeReducer.ts написать нужные типы вместо any, дописать редьюсер
@@ -11,6 +11,17 @@ import { changeThemeId } from './bll/themeReducer'
 * 3 - дописать тип и логику функции change
 * 4 - передать пропсы в SuperSelect
 * */
+
+// ! --------------------------------- !!!
+export type Themes = themesType[]
+
+export type themesType = {
+  id: number
+  value: FilterValue
+}
+
+export type FilterValue = 'light' | 'blue' | 'dark'
+// ! --------------------------------- !!!
 
 const themes = [
   { id: 1, value: 'light' },
@@ -20,10 +31,21 @@ const themes = [
 
 const HW12 = () => {
   // взять ид темы из редакса
-  const themeId = 1
+  //* т.е. у нас жестко захардкоджено, необходимо взять из store
 
-  const change = (id: any) => { // дописать функцию
 
+  let dispatch = useDispatch();
+
+
+  const ThemsNumber = useSelector((state: RootState) => (state.theme.themeId))
+  // const themeId = themes[0].id
+  const themeId = themes[ThemsNumber - 1].id
+
+
+
+
+  const change = (id: number) => { // дописать функцию
+    dispatch(changeThemeId(id))
   }
 
   useEffect(() => {
@@ -40,10 +62,14 @@ const HW12 = () => {
         <SuperSelect
           id={'hw12-select-theme'}
           className={s.select}
-        // сделать переключение тем
+          // сделать переключение тем
+          options={themes}
+          // value={themeId}
+          onChangeOption={change}
         // todo Приблизительный алгоритм:
         //* 1. Проработать выбор селектора - Элементы get inputs radio и input select. смотри Homework #7
         //* 2. Привязать селекторы к массиву themes - выбор темы
+        //* 2.1 Смотри получение темі из Redux
         //* 3. Написать функцию change - изменения темы 
         //* смотри 4.1 Slice - как там сделано
         />
