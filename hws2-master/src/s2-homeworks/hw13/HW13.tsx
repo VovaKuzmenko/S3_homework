@@ -25,44 +25,34 @@ const HW13 = () => {
       x === null
         ? 'https://xxxxxx.ccc' // имитация запроса на не корректный адрес
         : 'https://samurai.it-incubator.io/api/3.0/homework/test'
-    // ! Так понимаю функции, которые меняют свое содержимое в зависимости от нажатой кнопки
     setCode('') // -  код ошибки
     setImage('') // -  картинка
     setText('') // -  текст сопровождения
     setInfo('...loading') // -  показатель загрузки данных
 
-    // todo Сама логика запросов и ответов
-    // todo не забудь дизэйблить кнопки пока идёт запрос;
     axios
       .post(url, { success: x })
       .then((res) => {
-        console.log(res)
         setCode('Код 200!')
         setImage(success200)
-        // дописать
-        // ! Варианты успешных запросов
+        // дописать        
         setInfo('')
         setText(res.data.errorText + '\n' + res.data.info)
 
       })
       .catch((e) => {
-        // дописать
-        // ! Варианты ошибок
-        console.log(e)
+        // дописать        
         if (e.response.status === 500) {
-          console.log(e.response.data.errorText)
           setInfo('')
           setCode('Ошибка 500!')
           setImage(error500)
           setText(e.response.data.errorText + '\n' + e.response.data.info)
         } else if (e.response.status === 400) {
-          console.log(e.response.data.errorText)
           setInfo('')
           setCode('Ошибка 400!')
           setImage(error400)
           setText(e.response.data.errorText + '\n' + e.response.data.info)
         } else if (e.response.status === 0) {
-          console.log(e.message, e.name)
           setInfo('')
           setCode('Error!')
           setImage(errorUnknown)
@@ -82,7 +72,6 @@ const HW13 = () => {
             onClick={send(true)}
             xType={'secondary'}
             // дописать
-            // ! добавить данные используемые в дизайне
             disabled={info === '...loading'}
           >
             Send true
@@ -92,7 +81,6 @@ const HW13 = () => {
             onClick={send(false)}
             xType={'secondary'}
             // дописать
-            // ! добавить данные используемые в дизайне
             disabled={info === '...loading'}
           >
             Send false
@@ -102,7 +90,6 @@ const HW13 = () => {
             onClick={send(undefined)}
             xType={'secondary'}
             // дописать
-            // ! добавить данные используемые в дизайне
             disabled={info === '...loading'}
           >
             Send undefined
@@ -112,7 +99,6 @@ const HW13 = () => {
             onClick={send(null)} // имитация запроса на не корректный адрес
             xType={'secondary'}
             // дописать
-            // ! добавить данные используемые в дизайне
             disabled={info === '...loading'}
           >
             Send null
