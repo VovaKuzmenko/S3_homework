@@ -36,27 +36,28 @@ const HW13 = () => {
         setCode('Код 200!')
         setImage(success200)
         // дописать        
-        setInfo('')
-        setText(res.data.errorText + '\n' + res.data.info)
+        setInfo(res.data.info)
+        setText(res.data.errorText)
 
       })
       .catch((e) => {
         // дописать        
         if (e.response.status === 500) {
-          setInfo('')
           setCode('Ошибка 500!')
           setImage(error500)
-          setText(e.response.data.errorText + '\n' + e.response.data.info)
+          setInfo(e.response.data.info)
+          setText(e.response.data.errorText)
         } else if (e.response.status === 400) {
-          setInfo('')
+
           setCode('Ошибка 400!')
           setImage(error400)
-          setText(e.response.data.errorText + '\n' + e.response.data.info)
+          setInfo(e.response.data.info)
+          setText(e.response.data.errorText)
         } else if (e.response.status === 0) {
-          setInfo('')
           setCode('Error!')
           setImage(errorUnknown)
-          setText(e.message + '\n' + e.name)
+          setInfo(e.name)
+          setText(e.message)
         }
       })
   }

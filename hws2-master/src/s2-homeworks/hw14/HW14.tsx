@@ -25,39 +25,38 @@ const getTechs = (find: string) => {
 }
 
 const HW14 = () => {
-  const [find, setFind] = useState('')
-  const [isLoading, setLoading] = useState(false)
-  const [searchParams, setSearchParams] = useSearchParams()
-  const [techs, setTechs] = useState<string[]>([])
+  const [find, setFind] = useState('') // что ищем
+  const [isLoading, setLoading] = useState(false) // пауза активирована или нет
+  const [searchParams, setSearchParams] = useSearchParams() // искомій параметр ??
+  const [techs, setTechs] = useState<string[]>([]) // массив приходящий с сервера
 
-  // todo Приблизительный алгоритм:
-  // todo 1. Посмотреть пришедшие данные
-  //! все дальнейшие действия по идее отрганизовываются в запросе
-  // todo 2. Для начала организовать ввод, сохранение и очистку данных в инпут
-  // todo 3. Поиск по введенным данным в массиве
-  // todo 4. "ищем" - вместо крутилки
-  // todo 5. Ошибка - ??
-  // todo 6. Отобразить картинки по дизайну
+
 
   const sendQuery = (value: string) => {
     setLoading(true)
     getTechs(value)
       .then((res) => {
         // делает студент
-
-        // сохранить пришедшие данные
+        // сохранить пришедшие данные        
+        setLoading(false)
+        setTechs(res?.data?.techs || [])
 
         //
       })
   }
 
   const onChangeText = (value: string) => {
+
     setFind(value)
     // делает студент
-
+    // console.log(value, find, searchParams)
     // добавить/заменить значение в квери урла
     // setSearchParams(
-
+    for (let i = 0; i < techs.length; i++) {
+      if (techs[i].startsWith(find)) {
+        setSearchParams((techs[i]));
+      }
+    }
     //
   }
 

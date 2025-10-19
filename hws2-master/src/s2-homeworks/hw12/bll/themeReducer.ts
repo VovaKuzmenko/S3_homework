@@ -3,13 +3,14 @@ const initState = {
   themeId: 1,
 }
 
-// export type themeId = number
+export type themeId = number
 type InitialStateType = typeof initState
 
 //*  типизация всего состояния (state), 
 // * почему в stоte єтого нет ?
 // ! --------------------------------- !!!
 export type RootState = {
+
   theme: {
     themeId: number
   }
