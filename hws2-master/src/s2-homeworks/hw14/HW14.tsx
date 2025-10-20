@@ -27,7 +27,7 @@ const getTechs = (find: string) => {
 const HW14 = () => {
   const [find, setFind] = useState('') // что ищем
   const [isLoading, setLoading] = useState(false) // пауза активирована или нет
-  const [searchParams, setSearchParams] = useSearchParams() // искомій параметр ??
+  const [searchParams, setSearchParams] = useSearchParams() // искомый параметр
   const [techs, setTechs] = useState<string[]>([]) // массив приходящий с сервера
 
 
